@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hegemon Web Browser</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .browser-header {
+            background-color: #2d2d2d;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 2px solid #00ffcc;
+        }
+        .brand {
+            font-weight: bold;
+            color: #00ffcc;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .nav-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        .btn-nav {
+            background-color: #404040;
+            color: white;
+            border: 1px solid #555;
+            padding: 8px 14px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+        .btn-nav:hover {
+            background-color: #00ffcc;
+            color: #1a1a1a;
+            border-color: #00ffcc;
+        }
+        .status-bar {
+            flex-grow: 1;
+            background-color: #1a1a1a;
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #aaa;
+            border: 1px solid #404040;
+        }
+        .browser-screen {
+            flex-grow: 1;
+            border: none;
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="browser-header">
+        <div class="brand">Hegemon OS Browser</div>
+        
+        <div class="nav-buttons">
+            <button class="btn-nav" onclick="irA('https://wikipedia.org')">Wikipedia</button>
+            <button class="btn-nav" onclick="irA('https://archive.org')">Internet Archive</button>
+        </div>
+
+        <div id="urlDisplay" class="status-bar">https://wikipedia.org</div>
+    </div>
+
+    <iframe id="visorWeb" class="browser-screen" src="https://wikipedia.org"></iframe>
+
+    <script>
+        function irA(url) {
+            document.getElementById('visorWeb').src = url;
+            document.getElementById('urlDisplay').innerText = url;
+        }
+    </script>
+
+</body>
+</html>
